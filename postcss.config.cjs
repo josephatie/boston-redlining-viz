@@ -1,7 +1,8 @@
+// postcss.config.cjs
 module.exports = {
   plugins: {
-    // Use the Tailwind PostCSS adapter
-    '@tailwindcss/postcss': {},
+    // Tell the plugin exactly where your Tailwind config lives
+    '@tailwindcss/postcss': { config: './tailwind.config.js' },
     autoprefixer: {},
   },
 };
