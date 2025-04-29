@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base font settings */
+html {
+  font-family: 'Inter', sans-serif;
+  background-color: theme('colors.bg');
+  color: theme('colors.text');
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: theme('colors.text');
+}
