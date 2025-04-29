@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @layer base {
-  html { @apply bg-bg text-text font-sans; }
-  body { @apply bg-bg text-text; margin: 0; }
+  html { @apply bg-maincolor text-text font-sans; }
+  body { @apply bg-maincolor text-text; margin: 0; }
   h1, h2, h3, h4, h5, h6 { @apply font-serif text-text; }
 }
