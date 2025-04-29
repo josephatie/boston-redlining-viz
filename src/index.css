@@ -1,8 +1,33 @@
 /* src/index.css */
+
+/* 1) Import Tailwind’s engine */
 @import "tailwindcss";
 
+/* 2) Define your custom design tokens in CSS-first mode */
+@theme {
+  /* any key you @apply becomes --color-<key> under the hood */
+  --color-maincolor: #F7F7F7;
+  --color-text:      #2A2A2A;
+  --color-redline:   #C0747C;
+  --color-gradeA:    #5C8546;
+  --color-gradeB:    #59829C;
+  --color-gradeC:    #DACE74;
+  
+  /* font families too if you like */
+  --font-sans:  Inter, sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+/* 3) Use @apply as before—Tailwind will map bg-maincolor → var(--color-maincolor) etc. */
 @layer base {
-  html { @apply bg-maincolor text-text font-sans; }
-  body { @apply bg-maincolor text-text; margin: 0; }
-  h1, h2, h3, h4, h5, h6 { @apply font-serif text-text; }
+  html {
+    @apply bg-maincolor text-text font-sans;
+  }
+  body {
+    @apply bg-maincolor text-text;
+    margin: 0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-text;
+  }
 }
