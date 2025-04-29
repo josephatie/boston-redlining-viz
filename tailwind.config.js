@@ -1,11 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // ← Tell Tailwind which files to scan for class names
   content: [
-    './index.html',
-    './src/**/*.{js,ts,jsx,tsx,css}',
+    'index.html',
+    'src/**/*.{js,ts,jsx,tsx,css}',
   ],
-
   theme: {
     extend: {
       colors: {
@@ -17,12 +15,10 @@ module.exports = {
         gradeC:  '#DACE74',
       },
       fontFamily: {
-        sans:  ['Inter', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans:  ['Inter','sans-serif'],
+        serif: ['Playfair Display','serif'],
       },
     },
   },
-
-  // no extra plugins for now
   plugins: [],
 }
