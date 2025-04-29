@@ -3,17 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    /* Use font-sans instead of sans */
-    @apply bg-bg text-text font-sans;
-  }
-  body {
-    /* Keep the same background/text, remove default margin */
-    @apply bg-bg text-text;
-    margin: 0;
-  }
-  /* Apply your serif font to all headings */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif text-text;
-  }
+  html { @apply bg-bg text-text font-sans; }
+  body { @apply bg-bg text-text; margin: 0; }
+  h1, h2, h3, h4, h5, h6 { @apply font-serif text-text; }
 }
