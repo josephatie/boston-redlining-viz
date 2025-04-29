@@ -4,14 +4,15 @@
 
 @layer base {
   html {
-    /* apply our custom colors and font via Tailwind */
-    @apply bg-bg text-text sans;
+    /* Use font-sans instead of sans */
+    @apply bg-bg text-text font-sans;
   }
   body {
-    /* ensure body inherits and has no default margin */
+    /* Keep the same background/text, remove default margin */
     @apply bg-bg text-text;
     margin: 0;
   }
+  /* Apply your serif font to all headings */
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif text-text;
   }
