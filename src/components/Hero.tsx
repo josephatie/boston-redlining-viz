@@ -8,7 +8,7 @@ const Hero: React.FC = () => (
     transition={{ duration: 1 }}
     className="h-screen flex items-center justify-center bg-gray-100"
   >
-    <h1 className="text-5xl font-bold">Boston’s Redlining Legacy</h1>
+    <h1 className="text-5xl font-bold">Boston’ss Redlining Legacy</h1>
   </motion.section>
 );
 
