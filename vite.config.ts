@@ -5,6 +5,12 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss(),              // ← add this
+    tailwindcss(),
   ],
+  resolve: {
+    alias: {
+      // Redirect bare imports of react-map-gl to its ESM build
+      'react-map-gl': 'react-map-gl/dist/esm'
+    }
+  }
 })

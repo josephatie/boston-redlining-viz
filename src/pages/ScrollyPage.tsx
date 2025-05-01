@@ -2,24 +2,12 @@
 import React from 'react';
 import ScrollyStep from '../components/ScrollyStep';
 import Hero from '../components/Hero';
+import {Intro} from '../../slides'
 import AnimatedBarChart from '../components/AnimatedBarChart';
-import MetricMap from '../components/MetricMap';
 
 // Define your slides: a key and the content to render
 const slides = [
-  {
-    key: 'intro',
-    content: (
-      <>
-        <h1 className="text-4xl font-bold mb-4">A legacy that still shapes lives</h1>
-        <p className="max-w-2xl">
-          In mid-20th century Boston, a silent line was drawn—not with fences,
-          but with ink. Banks and federal agencies labeled entire
-          neighborhoods as risky, solely because of the people who lived there.
-        </p>
-      </>
-    )
-  },
+  { id: 'intro', content: <Intro />, viz: null},
   {
     key: 'unemployment',
     content: (
@@ -32,15 +20,6 @@ const slides = [
     )
   },
   // Add more metric slides here, for 'income', 'mentalDistress', etc.
-  {
-    key: 'map',
-    content: (
-      <>
-        <h2 className="text-3xl font-semibold mb-2">Explore All Metrics</h2>
-        <MetricMap />
-      </>
-    )
-  },
   {
     key: 'about',
     content: (
