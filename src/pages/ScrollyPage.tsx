@@ -19,7 +19,7 @@ const slides = [
       </>
     )
   },
-  // Add more metric slides here, for 'income', 'mentalDistress', etc.
+  // Add more metric slides here, for 'income', 'mentalDistress.', etc.
   {
     key: 'about',
     content: (
