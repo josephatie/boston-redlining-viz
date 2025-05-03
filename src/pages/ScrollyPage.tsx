@@ -1,13 +1,15 @@
 // src/pages/ScrollyPage.tsx
 import React from 'react';
 import ScrollyStep from '../components/ScrollyStep';
-import Hero from '../components/Hero';
-import {Intro} from '../slides'
+import {Intro, MentalDistress, MentalChart} from '../slides'
 import AnimatedBarChart from '../components/AnimatedBarChart';
 
 // Define your slides: a key and the content to render
 const slides = [
   { id: 'intro', content: <Intro />, viz: null},
+  { id: 'mental', content: <MentalDistress />, viz: null},
+  { id: 'mentalChart', content: <MentalChart />, viz: null},
+
   {
     key: 'unemployment',
     content: (
