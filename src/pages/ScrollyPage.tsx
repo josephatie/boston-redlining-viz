@@ -2,7 +2,7 @@
 import React from 'react';
 import ScrollyStep from '../components/ScrollyStep';
 import Hero from '../components/Hero';
-import {Intro} from '../../slides'
+import {Intro} from '../slides'
 import AnimatedBarChart from '../components/AnimatedBarChart';
 
 // Define your slides: a key and the content to render
