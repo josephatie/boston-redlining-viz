@@ -1,15 +1,13 @@
-// src/pages/ScrollyPage.tsx
-import React from 'react';
-import ScrollyStep from '../components/ScrollyStep';
-import Hero from '../components/Hero';
-import {Intro} from '../slides'
-import AnimatedBarChart from '../components/AnimatedBarChart';
+import ScrollyStep from '../components/ScrollyStep'
+import { Intro } from '../slides'
+import AnimatedBarChart from '../components/AnimatedBarChart'
+import Unemployment from '../slides/02-unemployment/unemployment.tsx'
 
-// Define your slides: a key and the content to render
 const slides = [
-  { id: 'intro', content: <Intro />, viz: null},
+  { key: 'intro',        content: <Intro /> },
+  { key: 'unemployment', content: <Unemployment /> },
   {
-    key: 'unemployment',
+    key: 'chart',
     content: (
       <>
         <h2 className="text-3xl font-semibold mb-2">
@@ -19,7 +17,6 @@ const slides = [
       </>
     )
   },
-  // Add more metric slides here, for 'income', 'mentalDistress', etc.
   {
     key: 'about',
     content: (
@@ -33,14 +30,22 @@ const slides = [
       </>
     )
   }
-];
+]
 
-const ScrollyPage: React.FC = () => (
-  <div className="overflow-y-auto">
-    {slides.map(slide => (
-      <ScrollyStep key={slide.key}>{slide.content}</ScrollyStep>
-    ))}
-  </div>
-);
+export default function ScrollyPage() {
+  return (
+    <div>
+      {slides.map(slide => {
+        if (slide.key === 'unemployment') {
+          return <Unemployment key="unemployment" />
+        }
+        return (
+          <ScrollyStep key={slide.key}>
+            {slide.content}
+          </ScrollyStep>
+        )
+      })}
+    </div>
+  )
+}
 
-export default ScrollyPage;
