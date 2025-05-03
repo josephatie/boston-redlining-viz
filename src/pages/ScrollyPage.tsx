@@ -1,5 +1,4 @@
 // src/pages/ScrollyPage.tsx
-import React from 'react'
 import ScrollyStep from '../components/ScrollyStep'
 import { Intro, MentalDistress, MentalChart, Unemployment } from '../slides'
 
