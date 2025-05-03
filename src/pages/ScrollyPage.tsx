@@ -1,22 +1,11 @@
 import ScrollyStep from '../components/ScrollyStep'
-import { Intro } from '../slides'
-import AnimatedBarChart from '../components/AnimatedBarChart'
-import Unemployment from '../slides/02-unemployment/unemployment.tsx'
+import { Intro, MentalDistress, MentalChart, Unemployment } from '../slides'
 
 const slides = [
   { key: 'intro',        content: <Intro /> },
   { key: 'unemployment', content: <Unemployment /> },
-  {
-    key: 'chart',
-    content: (
-      <>
-        <h2 className="text-3xl font-semibold mb-2">
-          Unemployment in 2024 – “The Geography of Joblessness”
-        </h2>
-        <AnimatedBarChart dataKey="unemployment" />
-      </>
-    )
-  },
+  { key: 'mental', content: <MentalDistress />},
+  { key: 'mentalChart', content: <MentalChart />},
   {
     key: 'about',
     content: (
