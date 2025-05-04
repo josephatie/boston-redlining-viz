@@ -1,3 +1,4 @@
+// src/slides/Unemployment.tsx
 import { useState, useEffect, useRef } from 'react'
 
 const IMAGES = [
@@ -21,12 +22,18 @@ export default function Unemployment() {
   useEffect(() => {
     const onScroll = () => {
       if (!containerRef.current) return
-
       const rect = containerRef.current.getBoundingClientRect()
-      // rect.top is distance from section top to viewport top.
-      // Once it goes negative, section has entered the viewport.
+      // how far we've scrolled into the section
       const scrollInSection = Math.max(0, -rect.top)
-      const idx = Math.floor(scrollInSection / window.innerHeight)
+
+      // total scrollable distance = sectionHeight minus one viewport
+      const sectionHeight = containerRef.current.clientHeight
+      const maxScroll = sectionHeight - window.innerHeight
+      // divide into (N-1) frames so last caption holds
+      const frameHeight = maxScroll / (IMAGES.length - 1)
+      // clamp to [0, maxScroll]
+      const effective = Math.min(scrollInSection, maxScroll)
+      const idx = Math.floor(effective / frameHeight)
 
       setCurrent(Math.min(IMAGES.length - 1, Math.max(0, idx)))
     }
@@ -37,11 +44,9 @@ export default function Unemployment() {
 
   return (
     <div ref={containerRef} className="relative h-[400vh]">
-      {/* container to center + gutter */}
       <div className="container mx-auto px-6 h-full">
-        {/* sticky two-column viewer */}
         <div className="sticky top-0 h-screen flex items-center">
-          {/* left: image */}
+          {/* Image stack */}
           <div className="relative w-1/2 max-w-xl h-[80vh]">
             {IMAGES.map((src, i) => (
               <div
@@ -57,7 +62,7 @@ export default function Unemployment() {
             ))}
           </div>
 
-          {/* right: caption */}
+          {/* Captions */}
           <div className="relative w-1/2 max-w-xl h-[80vh] px-8">
             {CAPTIONS.map((text, i) => (
               <p
@@ -69,6 +74,7 @@ export default function Unemployment() {
                   transition-opacity duration-500 ease-in-out
                   ${current === i ? 'opacity-100' : 'opacity-0'}
                 `}
+                style={{ fontFamily: 'Georgia, serif' }}
               >
                 {text}
               </p>
@@ -79,4 +85,5 @@ export default function Unemployment() {
     </div>
   )
 }
+
 
