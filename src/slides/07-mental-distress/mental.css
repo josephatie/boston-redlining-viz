@@ -1,189 +1,189 @@
 /* src/slides/07-mental-distress/mental.css */
 
 .mental-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 0;
-  }
-  
-  /* Title styling */
-  .mental-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    color: #222;
-  }
-  
-  .compare-container {
-    position: relative;
-    width: 80vw;                                     /* 80% of the viewport width */
-    height: calc(80vw * (500 / 800));                /* preserve 800×500 aspect ratio */
-    margin: 0 auto;                                  /* center it */
-    overflow: hidden;
-  }
-  
-  .compare-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    pointer-events: none;
-  }
-  
-  .compare-img.overlay-img {
-    z-index: 2;
-  }
-  
-  .slider-bar {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 12px;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 4px;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    cursor: ew-resize;
-    z-index: 3;
-  }
-  
-  .slider-bar::before {
-    content: '⇔';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 14px;
-    color: #333;
-    pointer-events: none;
-  }
-  
-  .caption {
-    margin-top: 1.5rem;
-    font-size: 1.5rem;
-    text-align: center;
-    max-width: 800px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
 
-  /* disable text/image selection during drag */
+/* Title styling */
+.mental-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #222;
+}
+
+.compare-container {
+  position: relative;
+  width: 80vw;                                     /* 80% of the viewport width */
+  height: calc(80vw * (500 / 800));                /* preserve 800×500 aspect ratio */
+  margin: 0 auto;                                  /* center it */
+  overflow: hidden;
+}
+
+.compare-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.compare-img.overlay-img {
+  z-index: 2;
+}
+
+.slider-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  cursor: ew-resize;
+  z-index: 3;
+}
+
+.slider-bar::before {
+  content: '⇔';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: #333;
+  pointer-events: none;
+}
+
+.caption {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  max-width: 800px;
+}
+
+/* disable text/image selection during drag */
 .mental-wrapper,
 .compare-container,
 .compare-img,
 .slider-bar {
-  user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+user-select: none;
+-webkit-user-select: none;
+-ms-user-select: none;
 }
 
 /* on WebKit: prevent image dragging ghost */
 .compare-img {
-  -webkit-user-drag: none;
+-webkit-user-drag: none;
 }
 
 /* 1) Make the chart wrapper full 80vw and remove any max-width limit */
 .chart-wrapper {
-    width: 80vw;
-    max-width: none;
-    margin: 2rem auto;    /* center it */
-    height: 500px;        /* give it more vertical space */
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 2) Style the title */
-  .chart-title {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* 3) Center & space the legend */
-  .recharts-legend-wrapper {
-    display: flex !important;
-    justify-content: center;
-    padding-bottom: 0.5rem;
-  }
-  
-  /* 4) Tighten up rotated X-labels so they don’t overlap too much */
-  .recharts-cartesian-axis-ticks text {
-    font-size: 0.8rem;
-  }
-
-/* Chart explanatory text styling */
-.chart-text {
-  max-width: 80vw;
-  margin: 1.5rem auto 2rem;
-  font-size: 1.5rem;  /* increased font size */
-  line-height: 1.6;
-  color: #333;
+  width: 80vw;
+  max-width: none;
+  margin: 2rem auto;    /* center it */
+  height: 500px;        /* give it more vertical space */
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.chart-text p {
+/* 2) Style the title */
+.chart-title {
+  text-align: center;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
 }
 
+/* 3) Center & space the legend */
+.recharts-legend-wrapper {
+  display: flex !important;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+}
+
+/* 4) Tighten up rotated X-labels so they don’t overlap too much */
+.recharts-cartesian-axis-ticks text {
+  font-size: 0.8rem;
+}
+
+/* Chart explanatory text styling */
+.chart-text {
+max-width: 80vw;
+margin: 1.5rem auto 2rem;
+font-size: 1.8rem;  /* increased font size */
+line-height: 1.6;
+color: #333;
+}
+
+.chart-text p {
+margin-bottom: 1rem;
+}
+
 .chart-text strong {
-  font-weight: 600;
+font-weight: 600;
 }
 
 /* --- INTERLUDE WITH BREAK EFFECT --- */
 .interlude {
-    position: relative;
-    height: 100vh;
-    background: url('/img/boston-map.jpg') center/cover no-repeat;
-    overflow: hidden;
-  }
-  .interlude-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    z-index: 2;
-  }
-  .interlude-text {
-    color: #fff;
-    font-size: 2rem;
-    text-align: center;
-    line-height: 1.3;
-    max-width: 700px;
-  }
-  
-  /* segments always cover the map, but are initially hidden/masked */
-  .segment {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    background: url('/img/boston-map.jpg') center/cover no-repeat;
-    transition: transform 1s ease-out, opacity 1s ease-out;
-    opacity: 0;
-    z-index: 1;
-  }
-  .segment.tl { top: 0; left: 0; background-position: left top; }
-  .segment.tr { top: 0; right: 0; background-position: right top; }
-  .segment.bl { bottom: 0; left: 0; background-position: left bottom; }
-  .segment.br { bottom: 0; right: 0; background-position: right bottom; }
-  
-  /* when .broken is added, fade in & fly apart */
-  .interlude.broken .segment {
-    opacity: 1;
-  }
-  .interlude.broken .segment.tl {
-    transform: translate(-150px, -150px) rotate(-5deg);
-  }
-  .interlude.broken .segment.tr {
-    transform: translate(150px, -150px) rotate(5deg);
-  }
-  .interlude.broken .segment.bl {
-    transform: translate(-150px, 150px) rotate(5deg);
-  }
-  .interlude.broken .segment.br {
-    transform: translate(150px, 150px) rotate(-5deg);
-  }
+  position: relative;
+  height: 100vh;
+  background: url('/img/boston-map.jpg') center/cover no-repeat;
+  overflow: hidden;
+}
+.interlude-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 2;
+}
+.interlude-text {
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 1.3;
+  max-width: 700px;
+}
+
+/* segments always cover the map, but are initially hidden/masked */
+.segment {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: url('/img/boston-map.jpg') center/cover no-repeat;
+  transition: transform 1s ease-out, opacity 1s ease-out;
+  opacity: 0;
+  z-index: 1;
+}
+.segment.tl { top: 0; left: 0; background-position: left top; }
+.segment.tr { top: 0; right: 0; background-position: right top; }
+.segment.bl { bottom: 0; left: 0; background-position: left bottom; }
+.segment.br { bottom: 0; right: 0; background-position: right bottom; }
+
+/* when .broken is added, fade in & fly apart */
+.interlude.broken .segment {
+  opacity: 1;
+}
+.interlude.broken .segment.tl {
+  transform: translate(-150px, -150px) rotate(-5deg);
+}
+.interlude.broken .segment.tr {
+  transform: translate(150px, -150px) rotate(5deg);
+}
+.interlude.broken .segment.bl {
+  transform: translate(-150px, 150px) rotate(5deg);
+}
+.interlude.broken .segment.br {
+  transform: translate(150px, 150px) rotate(-5deg);
+}
