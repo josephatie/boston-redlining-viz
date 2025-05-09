@@ -1,0 +1,23 @@
+/* Ensure the chart container fills available flex space */
+.chart-wrapper {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+  }
+  
+  /* Force Recharts container to stretch to parent dimensions */
+  .recharts-responsive-container {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  /* Remove any background on the chart group */
+  .recharts-surface {
+    background-color: transparent !important;
+  }
+  
+  /* Optional: adjust bar size and spacing via CSS classes if needed */
+  .recharts-bar-rectangle {
+    /* bar size controlled in TSX with barSize prop */
+  }
+  

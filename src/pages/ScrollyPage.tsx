@@ -1,16 +1,19 @@
 // src/pages/ScrollyPage.tsx
 import React from 'react'
 import ScrollyStep from '../components/ScrollyStep'
-import { Intro, MentalDistress, MentalChart, Unemployment, CrowdedHousing, Evictions } from '../slides'
+import { Intro, MentalDistress, MentalChart, Unemployment, CrowdedHousing, Evictions, SmokeSlide, SmokingGame, CrimeCards, AboutUs } from '../slides'
 
 const slides = [
   { key: 'intro',        content: <Intro /> },
   { key: 'unemployment', content: <Unemployment /> },
+  { key: 'crime',       content: <CrimeCards /> },
   { key: 'evictions',    content: <Evictions /> },
   { key: 'crowdedHousing', content: <CrowdedHousing /> },
   { key: 'mental',       content: <MentalDistress /> },
   { key: 'mentalChart',  content: <MentalChart /> },
-  
+  { key: 'smoke',  content: <SmokeSlide /> },
+  { key: 'smokinggame',  content: <SmokingGame /> },
+  { key: 'about',  content: <AboutUs /> },
 ]
 
 export default function ScrollyPage() {
