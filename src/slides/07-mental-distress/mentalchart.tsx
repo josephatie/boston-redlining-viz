@@ -1,21 +1,13 @@
 // src/slides/07-mental-distress/MentalChart.tsx
-import {
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  Tooltip,
-  Legend,
-  Cell
-} from 'recharts';
+import { ResponsiveContainer, BarChart, Bar, XAxis, Tooltip, Legend, Cell } from 'recharts';
 import './mental.css';
 
 // Define row structure
-interface DistressRow {
+type DistressRow = {
   grade: 'A' | 'B' | 'C' | 'D';
   label: string;
   mental_distress_pct: number;
-}
+};
 
 // Static data
 const data: DistressRow[] = [
@@ -108,44 +100,49 @@ export default function MentalChart() {
 
   return (
     <section className="relative w-screen h-screen bg-[#d9d9d9] text-black flex items-center">
-      {/* Chart half, vertically centered */}
-      <div className="w-1/2 h-full flex flex-col justify-center px-6">
-        <h3 className="text-3xl text-black mb-4">Mental Distress by Neighborhood</h3>
-        <ResponsiveContainer width="100%" height={600}>
-          <BarChart
-            data={sortedData}
-            margin={{ top: 20, right: 20, left: 20, bottom: 100 }}
-          >
-            <XAxis
-              dataKey="label"
-              tickFormatter={code => neighborhoodMap[code] || code}
-              interval={0}
-              angle={-45}
-              textAnchor="end"
-              height={100}
-              stroke="#ffffff"
-              tick={{ fill: '#000000', fontSize: 12 }}
-            />
-            <Tooltip
-              formatter={(value: number) => `${value}%`} 
-              labelFormatter={() => ''}
-              contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151' }}
-              itemStyle={{ color: '#ffffff' }}
-              labelStyle={{ color: '#ffffff' }}
-            />
-            <Legend
-              payload={legendPayload}
-              verticalAlign="top"
-              align="center"
-              wrapperStyle={{ color: '#ffffff', marginBottom: '10px' }}
-            />
-            <Bar dataKey="mental_distress_pct" name="% Mental Distress">
-              {sortedData.map((row, idx) => (
-                <Cell key={idx} fill={COLOR_MAP[row.grade]} />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
+
+      {/* Chart half, vertically & horizontally centered */}
+      <div className="w-1/2 h-full flex flex-col items-center justify-center px-6">
+        <h3 className="text-3xl text-black mb-6 text-center">
+          Mental Distress by Neighborhood
+        </h3>
+        <div className="w-full h-3/4 flex items-center justify-center">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              data={sortedData}
+              margin={{ top: 20, right: 20, left: 20, bottom: 100 }}
+            >
+              <XAxis
+                dataKey="label"
+                tickFormatter={code => neighborhoodMap[code] || code}
+                interval={0}
+                angle={-45}
+                textAnchor="end"
+                height={100}
+                stroke="#ffffff"
+                tick={{ fill: '#000000', fontSize: 12 }}
+              />
+              <Tooltip
+                formatter={(value: number) => `${value}%`}
+                labelFormatter={() => ''}
+                contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151' }}
+                itemStyle={{ color: '#ffffff' }}
+                labelStyle={{ color: '#ffffff' }}
+              />
+              <Legend
+                payload={legendPayload}
+                verticalAlign="top"
+                align="center"
+                wrapperStyle={{ color: '#ffffff', marginBottom: '10px' }}
+              />
+              <Bar dataKey="mental_distress_pct" name="% Mental Distress">
+                {sortedData.map((row, idx) => (
+                  <Cell key={idx} fill={COLOR_MAP[row.grade]} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       </div>
 
       {/* Text half, vertically centered */}

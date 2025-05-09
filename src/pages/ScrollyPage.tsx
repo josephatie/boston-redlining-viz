@@ -6,16 +6,21 @@ import {
   MentalDistress,
   MentalChart,
   SmokeSlide,
-  SmokingGame
+  SmokingGame,
+  CrimeCards,
+  ActionSlide,
+  AboutUs
 } from '../slides'
 
 const slides = [
   { key: 'intro',        content: <Intro /> },
   { key: 'unemployment', content: <Unemployment /> },
+  { key: 'crime',       content: <CrimeCards /> },
   { key: 'mental',       content: <MentalDistress /> },
   { key: 'mentalChart',  content: <MentalChart /> },
   { key: 'smoke',  content: <SmokeSlide /> },
   { key: 'smokinggame',  content: <SmokingGame /> },
+  { key: 'about',  content: <AboutUs /> },
 ]
 
 export default function ScrollyPage() {
