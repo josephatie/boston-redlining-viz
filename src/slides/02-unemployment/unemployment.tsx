@@ -44,8 +44,11 @@ export default function Unemployment() {
 
   return (
     <div ref={containerRef} className="relative h-[400vh]">
+      <h2 className="sticky top-0 w-full bg-white font-serif font-bold text-3xl md:text-4xl px-6 py-4 z-20">
+        Unemployment
+      </h2>
       <div className="container mx-auto px-6 h-full">
-        <div className="sticky top-0 h-screen flex items-center">
+        <div className="sticky top-0 h-screen flex items-center gap-16">
           {/* Image stack */}
           <div className="relative w-1/2 max-w-xl h-[80vh]">
             {IMAGES.map((src, i) => (
@@ -85,5 +88,3 @@ export default function Unemployment() {
     </div>
   )
 }
-
-

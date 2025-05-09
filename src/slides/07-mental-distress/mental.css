@@ -41,13 +41,18 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 12px;
+  width: 20px;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 4px;
   border-left: 1px solid black;
   border-right: 1px solid black;
   cursor: ew-resize;
   z-index: 3;
+}
+
+.slider-bar:hover {
+  width: 24px;                   /* widen on hover */
+  background: rgba(255,255,255,0.9); /* brighter */
 }
 
 .slider-bar::before {
@@ -59,6 +64,20 @@
   font-size: 14px;
   color: #333;
   pointer-events: none;
+}
+
+.slider-bar::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: #333;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 4;
 }
 
 .caption {

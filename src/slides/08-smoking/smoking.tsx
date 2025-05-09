@@ -5,7 +5,7 @@ import React from 'react';
 export default function Page() {
   return (
     // Use w-screen to span full viewport width, ignoring parent containers
-    <div className="relative w-screen h-screen overflow-hidden">
+    <div className="relative w-screen h-screen overflow-hidden font-serif">
       {/* Background video of burning cigarette */}
       <video
         src="/img/cigarette.mp4"
@@ -21,10 +21,10 @@ export default function Page() {
 
       {/* Centered text overlay */}
       <div className="relative z-10 flex flex-col items-center justify-center w-screen h-screen text-center px-6">
-        <h1 className="text-3xl md:text-5xl font-serif text-white mb-4">
+        <h1 className="text-4xl md:text-6xl font-serif text-white mb-4">
           When we think about smoking,<br /> we often frame it as a personal choice.
         </h1>
-        <p className="text-lg md:text-2xl text-white max-w-2xl">
+        <p className="text-xl md:text-2xl text-white max-w-2xl">
           But public health research reminds us: choices are shaped by context.
         </p>
       </div>

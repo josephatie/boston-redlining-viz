@@ -1,7 +1,7 @@
 // src/pages/ScrollyPage.tsx
 import React from 'react'
 import ScrollyStep from '../components/ScrollyStep'
-import { Intro, MentalDistress, MentalChart, Unemployment, CrowdedHousing, Evictions, SmokeSlide, SmokingGame, CrimeCards, AboutUs } from '../slides'
+import { Intro, MentalDistress, MentalChart, Unemployment, CrowdedHousing, Evictions, SmokeSlide, SmokingGame, CrimeCards, AboutUs, MapView } from '../slides'
 
 const slides = [
   { key: 'intro',        content: <Intro /> },
@@ -13,6 +13,7 @@ const slides = [
   { key: 'mentalChart',  content: <MentalChart /> },
   { key: 'smoke',  content: <SmokeSlide /> },
   { key: 'smokinggame',  content: <SmokingGame /> },
+  { key: 'map',          content: <MapView /> },
   { key: 'about',  content: <AboutUs /> },
 ]
 

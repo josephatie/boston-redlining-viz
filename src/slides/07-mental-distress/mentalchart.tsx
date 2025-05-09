@@ -99,69 +99,73 @@ export default function MentalChart() {
   }));
 
   return (
-    <section className="relative w-screen h-screen bg-[#d9d9d9] text-black flex items-center">
-
-      {/* Chart half, vertically & horizontally centered */}
-      <div className="w-1/2 h-full flex flex-col items-center justify-center px-6">
-        <h3 className="text-3xl text-black mb-6 text-center">
-          Mental Distress by Neighborhood
-        </h3>
-        <div className="w-full h-3/4 flex items-center justify-center">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              data={sortedData}
-              margin={{ top: 20, right: 20, left: 50, bottom: 100 }}
-            >
-              <XAxis
-                dataKey="label"
-                tickFormatter={code => neighborhoodMap[code] || code}
-                interval={0}
-                angle={-45}
-                textAnchor="end"
-                height={100}
-                stroke="#ffffff"
-                tick={{ fill: '#000000', fontSize: 12 }}
-              />
-              <Tooltip
-                formatter={(value: number) => `${value}%`}
-                labelFormatter={() => ''}
-                contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151' }}
-                itemStyle={{ color: '#ffffff' }}
-                labelStyle={{ color: '#ffffff' }}
-              />
-              <Legend
-                payload={legendPayload}
-                verticalAlign="top"
-                align="center"
-                wrapperStyle={{ color: '#ffffff', marginBottom: '10px' }}
-              />
-              <Bar dataKey="mental_distress_pct" name="% Mental Distress">
-                {sortedData.map((row, idx) => (
-                  <Cell key={idx} fill={COLOR_MAP[row.grade]} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
+    <section className="w-screen h-screen flex flex-col font-serif">
+      <h2 className="sticky top-0 w-full bg-white font-serif font-bold text-3xl md:text-4xl px-6 py-4 z-20">
+        Mental Distress
+      </h2>
+      <div className="flex flex-1 overflow-hidden">
+        {/* Chart half, vertically & horizontally centered */}
+        <div className="w-1/2 h-full flex flex-col items-center justify-center px-6 overflow-y-auto">
+          <h3 className="text-3xl text-black font-bold mb-6 text-center font-serif">
+            Mental Distress by Neighborhood
+          </h3>
+          <div className="w-full h-3/4 flex items-center justify-center">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                data={sortedData}
+                margin={{ top: 20, right: 20, left: 50, bottom: 100 }}
+              >
+                <XAxis
+                  dataKey="label"
+                  tickFormatter={code => neighborhoodMap[code] || code}
+                  interval={0}
+                  angle={-45}
+                  textAnchor="end"
+                  height={100}
+                  stroke="#ffffff"
+                  tick={{ fill: '#000000', fontSize: 12, fontFamily: 'Georgia, serif' }}
+                />
+                <Tooltip
+                  formatter={(value: number) => `${value}%`}
+                  labelFormatter={() => ''}
+                  contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151' }}
+                  itemStyle={{ color: '#ffffff' }}
+                  labelStyle={{ color: '#ffffff' }}
+                />
+                <Legend
+                  payload={legendPayload}
+                  verticalAlign="top"
+                  align="center"
+                  wrapperStyle={{ color: '#ffffff', marginBottom: '10px', fontFamily: 'Georgia, serif' }}
+                />
+                <Bar dataKey="mental_distress_pct" name="% Mental Distress">
+                  {sortedData.map((row, idx) => (
+                    <Cell key={idx} fill={COLOR_MAP[row.grade]} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </div>
-      </div>
 
-      {/* Text half, vertically centered */}
-      <div className="w-1/2 h-full flex flex-col justify-center px-6 space-y-4 text-lg leading-relaxed">
-        <p>
-          We often talk about redlining’s economic legacy. But what about its <strong>psychological imprint</strong>?
-        </p>
-        <p>
-          In 2022, residents of areas historically graded <strong>C and D</strong> reported higher levels of mental distress, including anxiety, depression, and chronic stress.
-        </p>
-        <p>
-          While we can’t draw a direct causal line, these patterns raise important questions. Many of these communities have experienced longstanding disinvestment—in schools, in housing, in access to opportunity. Living in such environments can take a toll over time.
-        </p>
-        <p>
-          Imagine growing up where resources are limited, stability is fragile, and violence feels near. These are not just external stressors—they can become internal burdens.
-        </p>
-        <p>
-          Structural inequality doesn’t just shape our cities. It can shape how people feel, cope, and hope.
-        </p>
+        {/* Text half, vertically centered */}
+        <div className="w-1/2 h-full flex flex-col justify-center px-6 space-y-4 text-lg leading-relaxed overflow-y-auto" style={{ fontFamily: 'Georgia, serif', fontSize: '1.125rem' }}>
+          <p>
+            We often talk about redlining’s economic legacy. But what about its <strong>psychological imprint</strong>?
+          </p>
+          <p>
+            In 2022, residents of areas historically graded <strong>C and D</strong> reported higher levels of mental distress, including anxiety, depression, and chronic stress.
+          </p>
+          <p>
+            While we can’t draw a direct causal line, these patterns raise important questions. Many of these communities have experienced longstanding disinvestment—in schools, in housing, in access to opportunity. Living in such environments can take a toll over time.
+          </p>
+          <p>
+            Imagine growing up where resources are limited, stability is fragile, and violence feels near. These are not just external stressors—they can become internal burdens.
+          </p>
+          <p>
+            Structural inequality doesn’t just shape our cities. It can shape how people feel, cope, and hope.
+          </p>
+        </div>
       </div>
     </section>
   );

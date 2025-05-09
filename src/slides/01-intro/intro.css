@@ -1,0 +1,10 @@
+/* src/slides/01-intro/intro.css */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  /* ensure our <p> uses the animation */
+  p[style*="animation: fadeIn"] {
+    /* nothing needed here – the inline style on the <p> will kick off the keyframes */
+  }

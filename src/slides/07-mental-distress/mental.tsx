@@ -14,7 +14,7 @@ export default function MentalDistress() {
     if (containerRef.current) {
       const width = containerRef.current.getBoundingClientRect().width;
       setContainerWidth(width);
-      setSliderX(width * 0.1);
+      setSliderX(width * 0.3);
     }
   }, []);
 
@@ -42,43 +42,44 @@ export default function MentalDistress() {
   }, [isDragging]);
 
   return (
-    <div className="mental-wrapper">
-      <h2 className="mental-title">
-        Mental Health: The Psychological Cost to Injustice
+    <section className="w-screen h-screen flex flex-col">
+      <h2 className="sticky top-0 w-full bg-white font-serif font-bold text-3xl md:text-4xl px-6 py-4 mb-6 z-20">
+        Mental Health
       </h2>
+      <div className="flex flex-1 overflow-hidden items-center justify-center flex-col">
+        <div className="compare-container mt-6" ref={containerRef}>
+          {/* Base image */}
+          <img
+            src="/img/grade-a.png"
+            className="compare-img"
+            alt="Grade A"
+          />
 
-      <div className="compare-container" ref={containerRef}>
-        {/* Base image */}
-        <img
-          src="/img/grade-a.png"
-          className="compare-img"
-          alt="Grade A"
-        />
+          {/* Overlay image clipped from the right */}
+          <img
+            src="/img/grade-d.png"
+            className="compare-img overlay-img"
+            alt="Grade D"
+            style={{
+              clipPath: `inset(0px ${containerWidth - sliderX}px 0px 0px)`,
+            }}
+          />
 
-        {/* Overlay image clipped from the right */}
-        <img
-          src="/img/grade-d.png"
-          className="compare-img overlay-img"
-          alt="Grade D"
-          style={{
-            clipPath: `inset(0px ${containerWidth - sliderX}px 0px 0px)`,
-          }}
-        />
+          {/* Draggable slider bar */}
+          <div
+            className="slider-bar"
+            style={{ left: `${sliderX}px` }}
+            onMouseDown={e => {
+              e.preventDefault();
+              setIsDragging(true);
+            }}
+          />
+        </div>
 
-        {/* Draggable slider bar */}
-        <div
-          className="slider-bar"
-          style={{ left: `${sliderX}px` }}
-          onMouseDown={e => {
-            e.preventDefault();
-            setIsDragging(true);
-          }}
-        />
+        <p className="caption font-serif mb-6" style={{ fontSize: '1.5rem' }}>
+          Two zipcodes. Twenty minutes apart. Worlds away in mental health.
+        </p>
       </div>
-
-      <p className="caption">
-        Two zipcodes. Twenty minutes apart. Worlds away in mental health.
-      </p>
-    </div>
+    </section>
   );
 }

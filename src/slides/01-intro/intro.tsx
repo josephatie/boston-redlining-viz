@@ -1,5 +1,6 @@
-// src/slides/Intro.tsx
+// src/slides/01-intro/intro.tsx
 import React, { useState, useEffect, useRef } from 'react'
+import './intro.css';
 
 export default function Intro() {
   // Texts for the scroll-through section
@@ -34,24 +35,23 @@ export default function Intro() {
   }, [TEXTS.length])
 
   return (
-    <div>
+    <div className="font-serif">
       {/* Hero */}
       <section
-        className="relative w-full h-screen bg-cover bg-center"
+        className="relative w-full h-screen bg-cover bg-center flex items-center"
         style={{ backgroundImage: "url('/Redlining background1.png')" }}
       >
         <div className="absolute inset-0 bg-black opacity-50" />
-        <div className="relative z-10 flex flex-col justify-center h-full px-6 max-w-3xl mx-auto">
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+        <div className="relative z-10 flex flex-col justify-center h-full px-6 max-w-3xl mx-auto space-y-4">
           <h2
             className="text-5xl md:text-7xl mb-6 text-white leading-tight"
-            style={{ fontFamily: 'Rockwell Nova, serif' }}
           >
             Echoes of History:<br />
             From Redlining to Today’s Inequities
           </h2>
           <p
             className="text-2xl md:text-3xl text-white leading-relaxed"
-            style={{ fontFamily: 'Georgia, serif' }}
           >
             How are Boston’s historically redlined areas doing today?
           </p>
@@ -59,34 +59,27 @@ export default function Intro() {
       </section>
 
       {/* “What happened?” section */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row items-start gap-8">
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6 max-w-4xl flex flex-col md:flex-row items-center gap-8">
           <div className="md:w-1/2">
-            <h3 className="text-3xl md:text-5xl font-serif mb-6">
+            <h3 className="text-2xl md:text-4xl font-bold mb-6">
               What happened?
             </h3>
-            <p
-              className="text-2xl md:text-3xl leading-relaxed mb-6"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              In mid-20th-century Boston, a silent line was drawn — not with fences,
-              but with ink. Banks and federal agencies labeled entire neighborhoods
-              as risky, solely because of the people who lived there.
-            </p>
-            <p
-              className="text-2xl md:text-3xl leading-relaxed mb-6"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              Roxbury and Dorchester, communities rich in culture and resilience,
-              were marked in red. That single color cut them off from homeownership,
-              investment, and opportunity.
-            </p>
-            <p
-              className="text-2xl md:text-3xl leading-relaxed"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              How did they do this?
-            </p>
+            <div className="prose prose-lg" style={{ fontSize: '1.2rem' }}>
+              <p>
+                In mid-20th-century Boston, a silent line was drawn — not with fences,
+                but with ink. Banks and federal agencies labeled entire neighborhoods
+                as risky, solely because of the people who lived there.
+              </p>
+              <p>
+                Roxbury and Dorchester, communities rich in culture and resilience,
+                were marked in red. That single color cut them off from homeownership,
+                investment, and opportunity.
+              </p>
+              <p>
+                How did they do this?
+              </p>
+            </div>
           </div>
           <div className="md:w-2/3 flex justify-center">
             <img
@@ -99,43 +92,32 @@ export default function Intro() {
       </section>
 
       {/* “Federal grades” section */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row items-start gap-8">
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6 max-w-4xl flex flex-col md:flex-row items-center gap-8">
           <div className="md:w-1/2">
             <h3
-              className="text-4xl md:text-5xl font-serif mb-6"
-              style={{ fontFamily: 'Georgia, serif' }}
+              className="text-3xl md:text-4xl font-bold mb-6"
             >
               On federal maps, neighborhoods were graded from A to D:
             </h3>
-            <p
-              className="text-2xl md:text-3xl leading-relaxed mb-4"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              <span style={{ color: '#5C8546', fontWeight: 'bold' }}>A</span>{' '}
-              Affluent and white — “Best” for investment
-            </p>
-            <p
-              className="text-2xl md:text-3xl leading-relaxed mb-4"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              <span style={{ color: '#59829C', fontWeight: 'bold' }}>B</span>{' '}
-              Stable and white-adjacent — “Still Desirable”
-            </p>
-            <p
-              className="text-2xl md:text-3xl leading-relaxed mb-4"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              <span style={{ color: '#DACE74', fontWeight: 'bold' }}>C</span>{' '}
-              Working-class, immigrant — “Declining”
-            </p>
-            <p
-              className="text-2xl md:text-3xl leading-relaxed"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              <span style={{ color: '#C0747C', fontWeight: 'bold' }}>D</span>{' '}
-              Black and brown communities — labeled “Hazardous”
-            </p>
+            <div className="prose prose-lg" style={{ fontSize: '1.2rem' }}>
+              <p>
+                <span style={{ color: '#5C8546', fontWeight: 'bold' }}>A</span>{' '}
+                Affluent and white — “Best” for investment
+              </p>
+              <p>
+                <span style={{ color: '#59829C', fontWeight: 'bold' }}>B</span>{' '}
+                Stable and white-adjacent — “Still Desirable”
+              </p>
+              <p>
+                <span style={{ color: '#DACE74', fontWeight: 'bold' }}>C</span>{' '}
+                Working-class, immigrant — “Declining”
+              </p>
+              <p>
+                <span style={{ color: '#C0747C', fontWeight: 'bold' }}>D</span>{' '}
+                Black and brown communities — labeled “Hazardous”
+              </p>
+            </div>
           </div>
           <div className="md:w-2/3 flex justify-center">
             <img
@@ -148,8 +130,19 @@ export default function Intro() {
       </section>
 
       {/* “Civil rights pushback” section */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-8">
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6 max-w-4xl flex flex-col md:flex-row items-center gap-8">
+          <div className="md:w-1/2">
+            <h3 className="text-2xl md:text-4xl font-bold mb-4">Civil Rights Pushback</h3>
+            <div className="prose prose-lg" style={{ fontSize: '1.2rem' }}>
+              <p>
+                As neighborhoods were walled off by red ink, people pushed back.
+                Boston’s civil rights activists fought for equal housing, equal credit,
+                equal respect. Redlining was declared illegal. But dismantling a policy
+                doesn't dismantle its legacy.
+              </p>
+            </div>
+          </div>
           <div className="md:w-2/3 flex justify-center">
             <img
               src="/protest.jpg"
@@ -157,31 +150,21 @@ export default function Intro() {
               className="w-full max-w-xl md:max-w-2xl h-auto object-cover rounded-lg shadow-lg"
             />
           </div>
-          <div className="md:w-1/2">
-            <p
-              className="text-2xl md:text-3xl leading-relaxed"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              As neighborhoods were walled off by red ink, people pushed back.
-              Boston’s civil rights activists fought for equal housing, equal credit,
-              equal respect. Redlining was declared illegal. But dismantling a policy
-              doesn't dismantle its legacy.
-            </p>
-          </div>
         </div>
       </section>
 
       {/* “Fixed background, changing text” section */}
       <section
         ref={textSectionRef}
-        className="relative w-full h-[200vh] bg-fixed bg-cover bg-center"
+        className="relative w-full h-[300vh] bg-fixed bg-cover bg-center"
         style={{ backgroundImage: "url('/Redlining background1.png')" }}
       >
         <div className="absolute inset-0 bg-black opacity-50" />
         <div className="sticky top-0 h-screen flex items-center justify-center">
           <p
-            className="text-6xl md:text-7xl lg:text-8xl text-white text-center max-w-3xl px-6"
-            style={{ fontFamily: 'Georgia, serif' }}
+            className="text-6xl md:text-7xl lg:text-8xl text-white text-center max-w-3xl px-6 transition-opacity duration-700 ease-in-out"
+            key={textIndex}
+            style={{ opacity: 0, animation: `fadeIn 0.7s forwards` }}
           >
             {TEXTS[textIndex]}
           </p>
