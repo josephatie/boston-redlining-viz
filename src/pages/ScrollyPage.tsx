@@ -1,7 +1,7 @@
 // src/pages/ScrollyPage.tsx
 import React from 'react'
 import ScrollyStep from '../components/ScrollyStep'
-import { Intro, MentalDistress, MentalChart, Unemployment, CrowdedHousing, Evictions, SmokeSlide, SmokingGame, CrimeCards, AboutUs, MapView } from '../slides'
+import { Intro, MentalDistress, MentalChart, Unemployment, CrowdedHousing, Evictions, SmokeSlide, SmokingGame, CrimeCards,CalltoAction, AboutUs,MapView } from '../slides'
 
 const slides = [
   { key: 'intro',        content: <Intro /> },
@@ -14,6 +14,7 @@ const slides = [
   { key: 'smoke',  content: <SmokeSlide /> },
   { key: 'smokinggame',  content: <SmokingGame /> },
   { key: 'map',          content: <MapView /> },
+  { key: 'calltoaction', content: <CalltoAction /> },
   { key: 'about',  content: <AboutUs /> },
 ]
 
@@ -25,7 +26,7 @@ export default function ScrollyPage() {
         if (slide.key === 'intro') {
           return <Intro key="intro" />
         }
-
+        if (slide.key === 'calltoaction') return <CalltoAction key="calltoaction" />
         // your custom 400vh scrolly sequence: render directly
         if (slide.key === 'unemployment') {
           return <Unemployment key="unemployment" />
